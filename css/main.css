@@ -6,6 +6,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 .main {
     display: flex;
     align-items: center;
@@ -24,14 +28,14 @@
     height: 620px;
     background-color: white;
     border-radius: 6px;
-    overflow: hidden;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
+    position: relative;
 }
 
 .slide {
     height: 55%;
-    background-image: url(./img/background.jpg);
+    background-image: url("../img/background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -63,7 +67,7 @@
 
 .avatar {
     position: absolute;
-    background-image: url("./img/avatar.png");
+    background-image: url("../img/avatar.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 180px;
@@ -79,13 +83,41 @@
 .name {
     text-align: center;
     margin-top: 10px;
+    font-size: 2.8rem;
 }
 
 .job {
     text-align: center;
     color: var(--main-color);
     margin-bottom: 14px;
+    font-size: 1.6rem;
 }
+
+#about,
+#resume,
+#webpage {
+    position: relative;
+    left: -200px;
+    display: none;
+}
+
+#about.active,
+#resume.active,
+#webpage.active {
+    display: block;
+    left: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.5);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
 
 .contact-icon {
     display: flex;
@@ -94,6 +126,7 @@
 }
 
 .contact-icon_item {
+    font-size: 1.6rem;
     width: 30px;
     height: 30px;
     background-color: white;
@@ -103,12 +136,54 @@
     border-radius: 50%;
     border: 1px solid #333;
     margin: 0 6px;
+    transition: all 0.9s;
 }
 
 .contact-icon_item:hover {
     background-color: var(--main-color);
     color: white;
 }
+
+.menu {
+    position: absolute;
+    top: 70px;
+    left: -70px;
+    background-color: white;
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.menu ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.menu ul li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-item a {
+    color: #777;
+    transition: all 0.5s;
+}
+
+.menu-item:hover > a{
+    color: var(--main-color);
+}
+
+.menu-content {
+    font-size: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.menu-active {
+    color: var(--main-color);
+}
+
 
 .content {
     width: 710px;
@@ -147,13 +222,14 @@
 .row-content {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 .text-box {
     flex: 1;
     padding: 30px 30px 30px 0;
     text-align: justify;
+    font-size: 1.6rem;
 }
 
 .list-info {
@@ -207,6 +283,136 @@
 }
 
 
+.experience,
+.education {
+    flex: 1;
+    padding: 30px;
+    position: relative;
+}
 
+.experience::before,
+.education::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: radial-gradient(ellipse at center, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
 
+.education::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: radial-gradient(ellipse at top, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.ex-title,
+.ed-title {
+    display: flex;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+}
+
+.ex-title i,
+.ed-title i {
+    margin-right: 10px;
+    color: var(--main-color);
+}
+
+.title-name {
+
+}
+
+.ed-content, 
+.ex-content {
+    margin-bottom: 14px;
+}
+
+.ex-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.knowledge .ex-content ul li {
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.knowledge .ex-content ul li i {
+    margin-right: 10px;
+    color: var(--main-color);
+}
+
+.time {
+    color: #333;
+    font-size: 1.2rem;
+    border: 1px solid #333;
+    padding: 2px 4px;
+    max-width: 100px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.time.active {
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.name_work {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.address_work {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.description_work {
+    font-size: 1.8rem;
+}
+
+.knowledge {
+    flex: 1;
+    padding: 30px
+}
+
+.design {
+    flex: 1;
+    padding: 30px
+}
+
+.webpage-item {
+    flex: 50%;
+    text-align: center;
+    padding: 30px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.9s;
+}
+
+.webpage-item:hover {
+    color: var(--main-color);
+}
+
+.webpage-item_img {
+    background-color:#333;
+    padding-top: 100%;
+}
+
+.webpage-item_name {    
+    font-size: 2.0rem;
+    font-weight: bold;
+}
+
+.webpage-item_time {
+    font-size: 1.4rem;
+}
 
