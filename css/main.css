@@ -13,7 +13,6 @@ html {
 .main {
     display: flex;
     align-items: center;
-    justify-content: center;
     background: linear-gradient(to bottom right, #50a3a2 0%, #78cc6d 100%);
     position: fixed;
     overflow: hidden;
@@ -28,9 +27,10 @@ html {
     height: 620px;
     background-color: white;
     border-radius: 6px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 10%);
+    z-index: 10;
     position: relative;
+    left: 180px;
 }
 
 .slide {
@@ -80,6 +80,10 @@ html {
     border-radius: 50%;
 }
 
+.info-text {
+
+}
+
 .name {
     text-align: center;
     margin-top: 10px;
@@ -91,21 +95,6 @@ html {
     color: var(--main-color);
     margin-bottom: 14px;
     font-size: 1.6rem;
-}
-
-#about,
-#resume,
-#webpage {
-    position: relative;
-    left: -200px;
-    display: none;
-}
-
-#about.active,
-#resume.active,
-#webpage.active {
-    display: block;
-    left: 0;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -180,7 +169,7 @@ html {
     justify-content: center;
 }
 
-a.menu-active {
+.menu-item.menu-active a {
     color: var(--main-color);
 }
 
@@ -191,6 +180,42 @@ a.menu-active {
     background-color: white;
     overflow: auto;
     padding: 30px;
+    position: absolute;
+    left: 240px;
+    top: 82px;
+    animation: hide ease-in 1s;
+    z-index: 0;
+    opacity: 0;
+}
+
+.content.active{
+    display: block;
+    left: 621px;
+    animation: appear ease-in 1s;
+    z-index: 3;
+    opacity: 1;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        left: 240px;
+    }
+    to {
+        opacity: 1;
+        left: 621px;
+    }
+}
+
+@keyframes hide {
+    from {
+        opacity: 1;
+        left: 621px;
+    }
+    to {
+        opacity: 0;
+        left: 240px;
+    }
 }
 
 .title {
