@@ -1,6 +1,5 @@
 
-var menus = document.querySelectorAll('.menu-item');
-console.log(menus);
+const menus = document.querySelectorAll('.menu-item');
 
 menus.forEach((item, index) => {
     item.onclick = function() {

@@ -67,7 +67,7 @@ html {
 
 .avatar {
     position: absolute;
-    background-image: url("../img/avatar.png");
+    background-image: url("../img/avatar.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 180px;
