@@ -428,7 +428,10 @@ html {
 }
 
 .webpage-item_img {
-    background-color:#333;
+    background-image: url(../img/du-an1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     padding-top: 100%;
 }
 
